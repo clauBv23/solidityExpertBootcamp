@@ -1,8 +1,14 @@
-## Solidity Experts Bootcamp (Encode)
+# Solidity Experts Bootcamp (Encode)
 
 It uses [foundry](https://book.getfoundry.sh/)
 
-## Usage
+## Content:
+
+ All lesson contents will be on their respective folder inside the `/src` folder. 
+   - [Lesson1](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson1)
+   - [Lesson2](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson2)
+   - [Lesson3](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson3)
+   - ...
 
 ### Build
 
