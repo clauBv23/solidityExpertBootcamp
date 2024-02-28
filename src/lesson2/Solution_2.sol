@@ -13,8 +13,11 @@ pragma solidity ^0.8.13;
     The final array will then have items
     {0,1,3,4,5,6,9,10,11}
  */
+
 contract Solution_2 {
     uint256[] public items;
+
+    event ItemDeleted(uint256 position, uint256 value);
 
     error OutOfRange(uint256 position, uint256 length);
     error ItemNotFound(uint256 value);
@@ -25,7 +28,6 @@ contract Solution_2 {
 
     function deleteItemByPos(uint256 position_) external {
         uint256 _length = itemsCount();
-
         if (position_ >= _length) {
             revert OutOfRange(position_, _length);
         }
@@ -33,6 +35,7 @@ contract Solution_2 {
         if (position_ == _length - 1) {
             items.pop();
         } else {
+            emit ItemDeleted(position_, items[position_]);
             items[position_] = items[_length - 1];
             items.pop();
         }
@@ -41,6 +44,7 @@ contract Solution_2 {
     function deleteItemByValue(uint256 value_) external {
         uint256 _length = itemsCount();
         uint256 _itemPos = findItem(value_);
+        emit ItemDeleted(_itemPos, value_);
 
         if (_itemPos == _length - 1) {
             items.pop();
