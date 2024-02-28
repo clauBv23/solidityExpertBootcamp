@@ -3,8 +3,9 @@ pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
 import {Solution_2} from "../src/lesson2/Solution_2.sol";
+import {StdInvariant} from "forge-std/StdInvariant.sol";
 
-contract Solution_2_Test is Test {
+contract Solution_2_Test is StdInvariant, Test {
     error OutOfRange(uint256 position, uint256 length);
     error ItemNotFound(uint256 value);
 
@@ -13,6 +14,7 @@ contract Solution_2_Test is Test {
 
     function setUp() public {
         solution = new Solution_2(items);
+        targetContract(address(solution));
     }
 
     function test_DeleteItemByPos(uint256 pos_) public {
@@ -42,7 +44,8 @@ contract Solution_2_Test is Test {
     }
 
     function test_DeleteItemByValue(uint256 value_) public {
-        uint256 _length = items.length;
+        uint256 _lengthBefore = solution.itemsCount();
+
         if (value_ > 11) {
             vm.expectRevert(
                 abi.encodeWithSelector(ItemNotFound.selector, value_)
@@ -52,11 +55,16 @@ contract Solution_2_Test is Test {
             solution.deleteItemByValue(value_);
 
             // check
-            assertEq(solution.itemsCount(), _length - 1);
+            assertEq(solution.itemsCount(), _lengthBefore - 1);
             vm.expectRevert(
                 abi.encodeWithSelector(ItemNotFound.selector, value_)
             );
             solution.findItem(value_);
         }
+    }
+
+    function invariant_Delete() public view {
+        assert(solution.itemsCount() <= 12);
+        assert(solution.itemsCount() >= 0);
     }
 }
