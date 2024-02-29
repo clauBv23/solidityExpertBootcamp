@@ -9,8 +9,6 @@ contract Dummy is Script, Test {
     uint256 mumbaiFork;
     uint256 sepoliaFork;
 
-    // uint256 optimismFork;
-
     function run() public {
         mainnetFork = vm.createFork(vm.envString("MAINNET_RPC_URL"));
         mumbaiFork = vm.createFork(vm.envString("MUMBAI_RPC_URL"));
