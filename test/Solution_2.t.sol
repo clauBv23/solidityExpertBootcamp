@@ -61,6 +61,48 @@ contract Solution_2_Test is StdInvariant, Test {
         }
     }
 
+    function test_DeleteItemByPos11(uint256 pos_) public {
+        uint256 _lengthBefore = solution.itemsCount();
+
+        if (pos_ >= _lengthBefore) {
+            vm.expectRevert(
+                abi.encodeWithSelector(OutOfRange.selector, pos_, _lengthBefore)
+            );
+            solution.delete_at_index(pos_, false);
+            return;
+        }
+
+        uint256 _itemAtPosBefore = solution.items(pos_);
+
+        // // expect event
+        // vm.expectEmit(address(solution));
+        // emit ItemDeleted(pos_, _itemAtPosBefore);
+
+        // delete item
+        solution.delete_at_index(pos_, false);
+
+        // check previous item at pos_ was removed
+        if (pos_ == _lengthBefore - 1) {
+            vm.expectRevert();
+            solution.items(pos_);
+        } else {
+            uint256 _itemAtPosAfter = solution.items(pos_);
+            assertNotEq(_itemAtPosBefore, _itemAtPosAfter);
+        }
+
+        // check length
+        assertEq(solution.itemsCount(), _lengthBefore - 1);
+
+        // check previous item at pos_ was removed
+        if (pos_ == _lengthBefore - 1) {
+            vm.expectRevert();
+            solution.items(pos_);
+        } else {
+            uint256 _itemAtPosAfter = solution.items(pos_);
+            assertNotEq(_itemAtPosBefore, _itemAtPosAfter);
+        }
+    }
+
     function test_DeleteItemByValue(uint256 value_) public {
         uint256 _lengthBefore = solution.itemsCount();
 

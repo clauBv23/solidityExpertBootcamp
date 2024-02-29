@@ -32,13 +32,11 @@ contract Solution_2 {
             revert OutOfRange(position_, _length);
         }
 
-        if (position_ == _length - 1) {
-            items.pop();
-        } else {
+        if (position_ != _length - 1) {
             emit ItemDeleted(position_, items[position_]);
             items[position_] = items[_length - 1];
-            items.pop();
         }
+        items.pop();
     }
 
     function deleteItemByValue(uint256 value_) external {
@@ -46,12 +44,11 @@ contract Solution_2 {
         uint256 _itemPos = findItem(value_);
         emit ItemDeleted(_itemPos, value_);
 
-        if (_itemPos == _length - 1) {
-            items.pop();
-        } else {
+        if (_itemPos != _length - 1) {
             items[_itemPos] = items[_length - 1];
-            items.pop();
         }
+
+        items.pop();
     }
 
     function findItem(uint256 value_) public view returns (uint256) {
@@ -66,5 +63,24 @@ contract Solution_2 {
 
     function itemsCount() public view returns (uint256) {
         return items.length;
+    }
+
+    function delete_at_index(uint index, bool keep_order) public {
+        // require(index < items.length, "Index out of bounds");
+        if (index >= items.length) {
+            revert OutOfRange(index, items.length);
+        }
+        if (keep_order) {
+            // we need to shift elements
+            for (uint i = index; i < items.length - 1; i++) {
+                items[i] = items[i + 1];
+            }
+        } else {
+            // we can directly replace since we don't need to keep order
+            items[index] = items[items.length - 1];
+        }
+
+        items.pop();
+        // emit Delete(index, block.timestamp);
     }
 }
