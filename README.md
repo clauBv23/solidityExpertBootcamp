@@ -8,6 +8,7 @@ It uses [foundry](https://book.getfoundry.sh/)
    - [Lesson1](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson1)
    - [Lesson2](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson2)
    - [Lesson3](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson3)
+   - [Lesson4](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson4)
    - ...
 
 ### Build
