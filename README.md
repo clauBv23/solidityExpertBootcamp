@@ -14,14 +14,20 @@ It uses [foundry](https://book.getfoundry.sh/)
 ## Homeworks:
 
 ### Lesson 1
-- [Solution todo](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson1/1Solution.sol)
+- [Solution TODO](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson1/1Solution.sol)
 ### Lesson 2
 - [Solution](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson2/Solution_2.sol)
 ### Lesson 3
-- [Solution todo](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson3)
+- [Solution TODO](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson3)
 ### Lesson 4
-- [Ex 1](https://github.com/clauBv23/solidityExpertBootcamp/tree/main/src/lesson3)
-
+- Ex 1 Optimising Storage
+  -    [Solution only reordering the defined variables](https://github.com/clauBv23/solidityExpertBootcamp/blob/main/src/lesson4/Optimization1.sol)
+   -    [Solution optimizing also the variables' types to use fewer slots](https://github.com/clauBv23/solidityExpertBootcamp/blob/main/src/lesson4/OptimizationFinal.sol)
+- Ex 2 Foundry Introduction
+- Ex 3 Try out the Solidity Template or the Foundry Template
+  - [Script forking mainnet (also sepolia and Mumbai) and getting the latest block](https://github.com/clauBv23/solidityExpertBootcamp/blob/main/script/lesson4/FoundryDummy.s.sol.sol). run `make get-lastest-blocks` 
+- Ex 4 Is this valid solidity?
+  - [contract showing it is valid](https://github.com/clauBv23/solidityExpertBootcamp/blob/main/src/lesson4/IsItValid.sol)
 ### Build
 
 ```shell
