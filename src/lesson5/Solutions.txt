@@ -1,0 +1,17 @@
+Q1: Look at the example of init code in today's notes
+See gist
+When we do the CODECOPY operation, what are we overwriting 
+
+Response: At this point in memory are 64 bytes with 80 (128 in decimals)
+
+
+----------------------------------------------------------------------------------------------------------------------------
+Q2: Could the answer to Q1 allow an optimisation?
+
+Response the value var could be defined as immutable instead of var due to it is not being changed 
+
+----------------------------------------------------------------------------------------------------------------------------
+Q3: Can you trigger a revert in the init code in Remix?
+
+Response: If we send value while deploying the contract it will revert because is not payable. 
+due to the function read is view and it does not revert it will never revert. 
