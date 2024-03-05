@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: MIT
+
+/**
+ *    Explain what the following code is doing in the Yul ERC20 contract
+ */
+
+/* function allowanceStorageOffset(account, spender) -> offset {
+      offset := accountToStorageOffset(account)
+      mstore(0, offset)
+      mstore(0x20, spender)
+      offset := keccak256(0, 0x40)
+    }
+/*
+// retunrs the allowance of the sepender on the account
