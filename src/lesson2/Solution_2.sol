@@ -32,8 +32,8 @@ contract Solution_2 {
             revert OutOfRange(position_, _length);
         }
 
+        emit ItemDeleted(position_, items[position_]);
         if (position_ != _length - 1) {
-            emit ItemDeleted(position_, items[position_]);
             items[position_] = items[_length - 1];
         }
         items.pop();
