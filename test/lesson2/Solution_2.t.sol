@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {Solution_2} from "../src/lesson2/Solution_2.sol";
+import {Solution_2} from "../../src/lesson2/Solution_2.sol";
 import {StdInvariant} from "forge-std/StdInvariant.sol";
 
 contract Solution_2_Test is StdInvariant, Test {
