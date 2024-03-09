@@ -15,3 +15,8 @@ Q3: Can you trigger a revert in the init code in Remix?
 
 Response: If we send value while deploying the contract it will revert because is not payable. 
 due to the function read is view and it does not revert it will never revert. 
+
+----------------------------------------------------------------------------------------------------------------------------
+Q5: Can you think of a situation where the opcode EXTCODECOPY is used ?
+
+Response: At EVM level guess it should be used to know if the calling contract has specific functions.
