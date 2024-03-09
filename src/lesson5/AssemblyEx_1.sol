@@ -14,7 +14,6 @@ contract Intro {
             // with command mstore(MEMORY_LOCATION, STACK_VARIABLE)
             // to return you need to specify address and the size from the starting point
             let new_variable := mol
-            // mstore(freeMem, new_variable) // on the first 0x20(32) bytes is stored mol
             mstore(0x40, new_variable)
             return(0x40, 0x20)
         }
